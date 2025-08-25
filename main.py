@@ -1,11 +1,11 @@
 import pandas as pd
 
-def generateCLASSIFIER():
+def generateAI():
     dataset = pd.read_csv("Data.xls.csv")
     dataset=dataset.dropna()
     X=dataset.iloc[:,1].values
     X=X.reshape(-1,1)
-    y = dataset.iloc[:, 3].values
+    y = dataset.iloc[:, -1].values
 
     from sklearn.model_selection import train_test_split
 
@@ -13,10 +13,9 @@ def generateCLASSIFIER():
 
     from sklearn.neighbors import KNeighborsClassifier
 
-    Classifier=KNeighborsClassifier(n_neighbors=5)
+    ai=KNeighborsClassifier(n_neighbors=5)
 
-    Classifier.fit(X_train, y_train)
+    ai.fit(X_train, y_train)
 
     import pickle
-
-    pickle.dump(Classifierlassifier,open('model.pkl','wb'))
+    pickle.dump(ai,open('model.pkl','wb'))

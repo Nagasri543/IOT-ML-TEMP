@@ -1,22 +1,22 @@
 from flask import Flask,request
-from main import generateCLASSIFIER
+from main import generateAI
 import pickle
 
-generateCLASSIFIER()
-Classifier=pickle.load(open('model.pkl','rb'))
+generateAI()
+ai=pickle.load(open('model.pkl','rb'))
 
 app=Flask(__name__)
 
 @app.route('/')
 def home():
-    return('CLASSIFIER Model Server is running')
+    return('AI Model Server is running')
 
 @app.route('/predict',methods=['GET'])
 def predict():
     temp=request.args.get('temp')
     temp=float(temp)
     data=[[temp]]
-    result=Classifier.predict(data)
+    result=ai.predict(data)
     result=result(0)
     return(result)
 
