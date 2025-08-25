@@ -5,7 +5,7 @@ def generateAI():
     dataset=dataset.dropna()
     X=dataset.iloc[:,1].values
     X=X.reshape(-1,1)
-    y = dataset.iloc[:, -1].values
+    y = dataset.iloc[:,-1].values
 
     from sklearn.model_selection import train_test_split
 

@@ -17,7 +17,7 @@ def predict():
     temp=float(temp)
     data=[[temp]]
     result=ai.predict(data)
-    result=result(0)
+    result=result[0]
     return(result)
 
 if(__name__=="__main__"):
